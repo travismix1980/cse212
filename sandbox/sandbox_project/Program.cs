@@ -8,6 +8,17 @@ public class Program
         // with any code or ideas you have that do not directly apply to
         // one of your projects.
 
-        Console.WriteLine("Hello Sandbox World!");
+        var numbers = new List<int> { 1, 2, 3 };
+
+        foreach(var number in numbers)
+        {
+            Console.WriteLine(number);
+        }
+
+        Console.WriteLine("Hello World!");
     }
 }
+
+// O(n)
+// O(n^2)
+// O(n)
