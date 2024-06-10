@@ -39,7 +39,7 @@ public static class ArraysTester
     ///
     /// To implement MultiplesOf is a pretty simple solution
     /// step 1 create a new array called results
-    /// step 2 write a for loop that runs 1 < length
+    /// step 2 write a for loop that runs 1 <= length
     /// step 3 in the for loop add the result of number times i to our list
     /// step 4 return the array we created
     private static double[] MultiplesOf(double number, int length) // cannot return a list from the method that is expecting an array and yet the assignment specified a list here so changed the return type of the method
