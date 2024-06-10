@@ -47,11 +47,11 @@ public static class ArraysTester
         /// To implement MultiplesOf is a pretty simple solution
         /// step 1 create a new array called results
         double[] results = new double[length];
-        /// step 2 write a for loop that runs 1 < length
+        /// step 2 write a for loop that runs 1 <= length
         for (var i = 1; i <= length; i++)
         {
             /// step 3 in the for loop add the result of number times i to our array
-            results[i - 1] = number * i;
+            results[i - 1] = (number * i);
         }
 
         /// step 4 return the array we created
