@@ -18,31 +18,40 @@ that back on the stack.  Next we go through the stack again and we get the * sym
    Invalid Case 4 is caused by stack.Count not equaling 1 at the end of a loop through cycle. so maybe an input of 1 2 + -
 */
 
-public static class MysteryStack2 {
-    private static bool IsFloat(string text) {
+public static class MysteryStack2
+{
+    private static bool IsFloat(string text)
+    {
         return float.TryParse(text, out _);
     }
 
-    public static float Run(string text) {
+    public static float Run(string text)
+    {
         var stack = new Stack<float>();
-        foreach (var item in text.Split(' ')) {
-            if (item == "+" || item == "-" || item == "*" || item == "/") {
+        foreach (var item in text.Split(' '))
+        {
+            if (item == "+" || item == "-" || item == "*" || item == "/")
+            {
                 if (stack.Count < 2)
                     throw new ApplicationException("Invalid Case 1!");
 
                 var op2 = stack.Pop();
                 var op1 = stack.Pop();
                 float res;
-                if (item == "+") {
+                if (item == "+")
+                {
                     res = op1 + op2;
                 }
-                else if (item == "-") {
+                else if (item == "-")
+                {
                     res = op1 - op2;
                 }
-                else if (item == "*") {
+                else if (item == "*")
+                {
                     res = op1 * op2;
                 }
-                else {
+                else
+                {
                     if (op2 == 0)
                         throw new ApplicationException("Invalid Case 2!");
 
@@ -51,12 +60,15 @@ public static class MysteryStack2 {
 
                 stack.Push(res);
             }
-            else if (IsFloat(item)) {
+            else if (IsFloat(item))
+            {
                 stack.Push(float.Parse(item));
             }
-            else if (item == "") {
+            else if (item == "")
+            {
             }
-            else {
+            else
+            {
                 throw new ApplicationException("Invalid Case 3!");
             }
         }
