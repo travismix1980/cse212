@@ -15,7 +15,7 @@
         // Console.WriteLine(players);    // This can be un-commented out for debug help
         while (players.Length > 0)
             players.GetNextPerson();
-        // Defect(s) Found: 
+        // Defect(s) Found: people were being placed at the beginning of the queue instead of the end changed insert to add in person queue
 
         Console.WriteLine("---------");
 
@@ -38,7 +38,7 @@
         while (players.Length > 0)
             players.GetNextPerson();
 
-        // Defect(s) Found: 
+        // Defect(s) Found: not sure fixing the problem with the first test case seems to have fixed this problem.  So I will go with people were being placed at the front of the queue as well
 
         Console.WriteLine("---------");
 
@@ -56,7 +56,7 @@
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
+        // Defect(s) Found: Tim is not being treated as a forever person and only gets displayed one time Had to add a case to handle if a person starts at zero but also deals with persons running out of turns not becoming forever persons
 
         Console.WriteLine("---------");
 
@@ -73,7 +73,7 @@
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
+        // Defect(s) Found: tim was added as starting with -3 turns.  This only allows him to come out of queue 1 time and then is removed.  To fix this error I adjusted my handling of forever to include less than zero options as well
 
         Console.WriteLine("---------");
 
@@ -83,6 +83,6 @@
         Console.WriteLine("Test 5");
         players = new TakingTurnsQueue();
         players.GetNextPerson();
-        // Defect(s) Found:
+        // Defect(s) Found: found no defects "No one in queue" is printed and nothing else
     }
 }
