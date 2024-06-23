@@ -13,5 +13,9 @@ public class Program
 
         Console.WriteLine("\n======================\nTranslator\n======================");
         Translator.Run();
+
+        // uncomment below to run solution to see if my solution matchs
+        // Console.WriteLine("------------------- Solution -------------------------------");
+        // TranslatorSolution.Run();
     }
 }
