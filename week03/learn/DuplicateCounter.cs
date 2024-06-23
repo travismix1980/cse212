@@ -22,9 +22,29 @@
         Console.WriteLine($"Number of duplicates : {CountDuplicates(data)}");
     }
 
+
+    /// <summary>
+    /// searches through an integer array for duplicate entries
+    /// </summary>
+    /// <param name="data">array of integers</param>
+    /// <returns>the number of duplicates in the array data</returns>
     private static int CountDuplicates(int[] data)
     {
         // Add code here.
-        return 0;
+        HashSet<int> storage = new();  //create a hashset
+        int dupes = 0;  //create an integer to store the number of duplicates
+        foreach(var n in data)  // loop through data and only store unique values otherwise increase dupes
+        {
+            if(storage.Contains(n))
+            {
+                dupes++;
+            }
+            else
+            {
+                storage.Add(n);
+            }
+        }
+
+        return dupes; // return number of duplicates
     }
 }
