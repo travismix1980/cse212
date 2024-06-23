@@ -31,20 +31,10 @@
     private static int CountDuplicates(int[] data)
     {
         // Add code here.
-        HashSet<int> storage = new();  //create a hashset
-        int dupes = 0;  //create an integer to store the number of duplicates
-        foreach(var n in data)  // loop through data and only store unique values otherwise increase dupes
-        {
-            if(storage.Contains(n))
-            {
-                dupes++;
-            }
-            else
-            {
-                storage.Add(n);
-            }
-        }
+        // if hashsets dont allow duplicate entries then we should be able to create a
+        // hashset from data and return the length of data - the count of the hashset
+        HashSet<int> noDupes = new(data);
 
-        return dupes; // return number of duplicates
+        return data.Length - noDupes.Count;
     }
 }
