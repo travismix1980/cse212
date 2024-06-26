@@ -1,13 +1,13 @@
 ﻿/*
- * CSE 212 Lesson 6C 
- * 
+ * CSE 212 Lesson 6C
+ *
  * This code will analyze the NBA basketball data and create a table showing
  * the players with the top 10 career points.
- * 
+ *
  * Note about columns:
  * - Player ID is in column 0
  * - Points is in column 8
- * 
+ *
  * Each row represents the player's stats for a single season with a single team.
  */
 
@@ -19,7 +19,9 @@ public class BasketballSolution
     {
         var players = new Dictionary<string, int>();
 
-        using var reader = new TextFieldParser("basketball.csv");
+        // same as in my solution this file isnt in bin/debug so i had to change the line below
+        // so the provided solution would work
+        using var reader = new TextFieldParser("../../../basketball.csv");
         reader.TextFieldType = FieldType.Delimited;
         reader.SetDelimiters(",");
         reader.ReadFields(); // ignore header row

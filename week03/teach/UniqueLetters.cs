@@ -1,4 +1,6 @@
-﻿public static class UniqueLetters {
+﻿using System.Runtime.CompilerServices;
+
+public static class UniqueLetters {
     public static void Run() {
         var test1 = "abcdefghjiklmnopqrstuvwxyz"; // Expect True because all letters unique
         Console.WriteLine(AreUniqueLetters(test1));
@@ -8,6 +10,13 @@
 
         var test3 = "";
         Console.WriteLine(AreUniqueLetters(test3)); // Expect True because its an empty string
+
+        Console.WriteLine("Test1=--=-=-=-=--=-==--==-");
+        Console.WriteLine(AreUniqueLetters2(test1));
+        Console.WriteLine("Test2=--=-=-=-=--=-==--==-");
+        Console.WriteLine(AreUniqueLetters2(test2));
+        Console.WriteLine("Test3=--=-=-=-=--=-==--==-");
+        Console.WriteLine(AreUniqueLetters2(test3));
     }
 
     /// <summary>Determine if there are any duplicate letters in the text provided</summary>
@@ -23,6 +32,16 @@
             }
         }
 
+        return true;
+    }
+    private static bool AreUniqueLetters2(string text)
+    {
+        char[] charsArr = text.ToCharArray();
+        HashSet<char> dupes = new(charsArr);
+        if(charsArr.Count() > dupes.Count())
+        {
+            return false;
+        }
         return true;
     }
 }
