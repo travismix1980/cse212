@@ -31,7 +31,8 @@ public static class SetsAndMapsTester
         // Problem 2: Degree Summary
         // Sample Test Cases (may not be comprehensive)
         Console.WriteLine("\n=========== Census TESTS ===========");
-        Console.WriteLine(string.Join(", ", SummarizeDegrees("census.txt")));
+        // ../../../ required so my pc will find the file
+        Console.WriteLine(string.Join(", ", SummarizeDegrees("../../../census.txt")));
         // Results may be in a different order:
         // <Dictionary>{[Bachelors, 5355], [HS-grad, 10501], [11th, 1175],
         // [Masters, 1723], [9th, 514], [Some-college, 7291], [Assoc-acdm, 1067],
@@ -121,9 +122,10 @@ public static class SetsAndMapsTester
             Array.Reverse(wordReversed);
             string reversedWord = new string(wordReversed);
             var index = Array.IndexOf(words, reversedWord);
-            if(index != -1 && !nodupes.Contains(word))
+            if (index != -1 && !nodupes.Contains(word))
             {
-                if(word != reversedWord)
+                // make sure we are not putting out pairs of two matching chars as they dont match such as aa or "11"
+                if (word != reversedWord)
                 {
                     Console.WriteLine($"Word: {word} Pair: {reversedWord}");
                 }
@@ -150,11 +152,23 @@ public static class SetsAndMapsTester
     private static Dictionary<string, int> SummarizeDegrees(string filename)
     {
         var degrees = new Dictionary<string, int>();
+        HashSet<string> degreesList = new();
         foreach (var line in File.ReadLines(filename))
         {
             var fields = line.Split(",");
             // Todo Problem 2 - ADD YOUR CODE HERE
+            string key = fields[3];
+            if(degreesList.Contains(key))
+            {
+                degrees[key]++;
+            }
+            else
+            {
+                degreesList.Add(key);
+                degrees[key] = 1;
+            }
         }
+
 
         return degrees;
     }
