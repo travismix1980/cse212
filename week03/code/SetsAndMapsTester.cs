@@ -123,7 +123,11 @@ public static class SetsAndMapsTester
             var index = Array.IndexOf(words, reversedWord);
             if(index != -1 && !nodupes.Contains(word))
             {
-                Console.WriteLine($"Word: {word} Pair: {reversedWord}");
+                if(word != reversedWord)
+                {
+                    Console.WriteLine($"Word: {word} Pair: {reversedWord}");
+                }
+
             }
             nodupes.Add(reversedWord);
         }
