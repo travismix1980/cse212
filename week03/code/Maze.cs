@@ -9,7 +9,7 @@
 /// 'left', 'right', 'up', and 'down' are boolean are represent valid directions
 ///
 /// If a direction is false, then we can assume there is a wall in that direction.
-/// If a direction is true, then we can proceed.  
+/// If a direction is true, then we can proceed.
 ///
 /// If there is a wall, then display "Can't go that way!".  If there is no wall,
 /// then the 'currX' and 'currY' values should be changed.
@@ -29,7 +29,18 @@ public class Maze {
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveLeft() {
-        // FILL IN CODE
+        // FILL IN CODE 'left' = 0
+        // _mazeMap[(_currX, _currY)][0]
+        // first check to see if we can move left and if we can decrement _currX by 1
+        if(_mazeMap[(_currX, _currY)][0])
+        {
+            _currX--;
+        }
+        // else say we cant go that way
+        else
+        {
+            Console.WriteLine("Can't go that way! (left)");
+        }
     }
 
     /// <summary>
@@ -37,7 +48,18 @@ public class Maze {
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveRight() {
-        // FILL IN CODE
+        // FILL IN CODE 'right' = 1
+        // _mazeMap[(_currX, _currY)][1]
+        // first check to see if we can move right and if we can increment _currX by 1
+        if(_mazeMap[(_currX, _currY)][1])
+        {
+            _currX++;
+        }
+        // else say we cant go that way
+        else
+        {
+            Console.WriteLine("Can't go that way! (right)");
+        }
     }
 
     /// <summary>
@@ -45,7 +67,18 @@ public class Maze {
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveUp() {
-        // FILL IN CODE
+        // FILL IN CODE 'up'= 2
+        // _mazeMap[(_currX, _currY)][0]
+        // first check to see if we can move up and if we can decrement _currY by 1
+        if(_mazeMap[(_currX, _currY)][2])
+        {
+            _currY--;
+        }
+        // else say we cant go that way
+        else
+        {
+            Console.WriteLine("Can't go that way! (up)");
+        }
     }
 
     /// <summary>
@@ -53,7 +86,18 @@ public class Maze {
     /// can't move, then display "Can't go that way!"
     /// </summary>
     public void MoveDown() {
-        // FILL IN CODE
+        // FILL IN CODE 'down' = 3
+        // _mazeMap[(_currX, _currY)][3]
+        // first check to see if we can move left and if we can increment _currY by 1
+        if(_mazeMap[(_currX, _currY)][3])
+        {
+            _currY++;
+        }
+        // else say we cant go that way
+        else
+        {
+            Console.WriteLine("Can't go that way! (down)");
+        }
     }
 
     public void ShowStatus() {
