@@ -197,23 +197,13 @@ public static class SetsAndMapsTester
     {
         // sort and remove spaces from the strings to make sure there are no extra characters
         // and all chars are in the same exact spot if they are the same characters
-        Dictionary<int, string> AnagramChecker = new();
-        char[] word1Char = word1.ToLower().ToCharArray();
-        char[] word2Char = word2.ToLower().ToCharArray();
-        Array.Sort(word1Char);
-        Array.Sort(word2Char);
-        string word1Str = new string(word1Char).Trim();
-        string word2Str = new string(word2Char).Trim();
-
-        // if we dont have the same amount of characters in each string we dont have an anagram
-        if(word1Str.Length != word2Str.Length)
+        Dictionary<int, string> AnagramChecker = new()
         {
-            return false;
-        }
-
-        // place both strings in the dictionary
-        AnagramChecker.Add(1, word1Str);
-        AnagramChecker.Add(2, word2Str);
+            { 1, word1.ToLower() },
+            { 2, word2.ToLower() }
+        };
+        AnagramChecker[1] = new string(AnagramChecker[1].OrderBy(ch => ch).ToArray()).Trim();
+        AnagramChecker[2] = new string(AnagramChecker[2].OrderBy(ch => ch).ToArray()).Trim();
         if(AnagramChecker[1].Equals(AnagramChecker[2]))
         {
             return true;
