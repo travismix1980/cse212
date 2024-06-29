@@ -197,6 +197,9 @@ public static class SetsAndMapsTester
     {
         // sort and remove spaces from the strings to make sure there are no extra characters
         // and all chars are in the same exact spot if they are the same characters
+        // had a hard time even finding a reason to use a dictionary here when you can get an
+        // O(1) solution without one  I even checked online and the best stuff they came up with
+        // was O(n log n) to O(n)
         Dictionary<int, string> AnagramChecker = new()
         {
             { 1, word1.ToLower() },
