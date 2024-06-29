@@ -1,3 +1,4 @@
+using System.Reflection.Metadata;
 using System.Text.Json;
 
 public static class SetsAndMapsTester
@@ -194,7 +195,30 @@ public static class SetsAndMapsTester
     /// #############
     private static bool IsAnagram(string word1, string word2)
     {
-        // Todo Problem 3 - ADD YOUR CODE HERE
+        // sort and remove spaces from the strings to make sure there are no extra characters
+        // and all chars are in the same exact spot if they are the same characters
+        Dictionary<int, string> AnagramChecker = new();
+        char[] word1Char = word1.ToLower().ToCharArray();
+        char[] word2Char = word2.ToLower().ToCharArray();
+        Array.Sort(word1Char);
+        Array.Sort(word2Char);
+        string word1Str = new string(word1Char).Trim();
+        string word2Str = new string(word2Char).Trim();
+
+        // if we dont have the same amount of characters in each string we dont have an anagram
+        if(word1Str.Length != word2Str.Length)
+        {
+            return false;
+        }
+
+        // place both strings in the dictionary
+        AnagramChecker.Add(1, word1Str);
+        AnagramChecker.Add(2, word2Str);
+        if(AnagramChecker[1].Equals(AnagramChecker[2]))
+        {
+            return true;
+        }
+
         return false;
     }
 
