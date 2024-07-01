@@ -159,7 +159,7 @@ public static class SetsAndMapsTester
             var fields = line.Split(",");
             // Todo Problem 2 - ADD YOUR CODE HERE
             string key = fields[3];
-            if(degreesList.Contains(key))
+            if (degreesList.Contains(key))
             {
                 degrees[key]++;
             }
@@ -207,7 +207,7 @@ public static class SetsAndMapsTester
         };
         AnagramChecker[1] = new string(AnagramChecker[1].OrderBy(ch => ch).ToArray()).Trim();
         AnagramChecker[2] = new string(AnagramChecker[2].OrderBy(ch => ch).ToArray()).Trim();
-        if(AnagramChecker[1].Equals(AnagramChecker[2]))
+        if (AnagramChecker[1].Equals(AnagramChecker[2]))
         {
             return true;
         }
@@ -291,5 +291,11 @@ public static class SetsAndMapsTester
         // 1. Add code in FeatureCollection.cs to describe the JSON using classes and properties
         // on those classes so that the call to Deserialize above works properly.
         // 2. Add code below to print out each place a earthquake has happened today and its magitude.
+        foreach (var v in featureCollection.features)
+        {
+            //Console.WriteLine(v.properties.place);
+            // 1km NE of Pahala, Hawaii - Mag 2.36
+            Console.WriteLine($"{v.properties.place} - Mag {v.properties.mag.ToString("#.##")}");
+        }
     }
 }
