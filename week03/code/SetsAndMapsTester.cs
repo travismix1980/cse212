@@ -291,11 +291,11 @@ public static class SetsAndMapsTester
         // 1. Add code in FeatureCollection.cs to describe the JSON using classes and properties
         // on those classes so that the call to Deserialize above works properly.
         // 2. Add code below to print out each place a earthquake has happened today and its magitude.
-        foreach (var v in featureCollection.features)
+        foreach (var v in featureCollection.Features)
         {
             //Console.WriteLine(v.properties.place);
             // 1km NE of Pahala, Hawaii - Mag 2.36
-            Console.WriteLine($"{v.properties.place} - Mag {v.properties.mag.ToString("#.##")}");
+            Console.WriteLine($"{v.Properties.Place} - Mag {v.Properties.Mag.ToString("#.##")}");
         }
     }
 }
